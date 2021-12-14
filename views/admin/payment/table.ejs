@@ -1,0 +1,55 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>No.</th>
+    <th>Type</th>
+    <th>Banks</th>
+    <th>Status</th>
+    <th>Aksi</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i < payment.length; i++) { %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= payment[i].type %></td>
+        <td>
+          <% payment[i].banks.forEach(bank => { %>
+            <span class="badge badge-warning">
+              <%= bank.name %> ~ <%= bank.nameBank %> 
+          </span>
+          <% }) %>
+        </td>
+        <td>
+          <% if(payment[i].status === 'Y'){ %>
+            <span class="badge badge-success">
+              Active
+            </span>
+          <% }else{ %>
+            <span class="badge badge-danger">
+              Non Active
+            </span>
+          <% } %>
+        </td>
+        <td>
+          <form action="/payment/status/<%= payment[i]._id %>?_method=put" method="post" style="display: inline-block">
+              <button class="btn btn-primary">
+                <i class="fas fa-folder"></i>
+                <% if(payment[i].status === 'Y'){ %>
+                  Off
+                <% }else{ %>
+                  On
+                <% } %>
+              </button>
+          </form>
+          <form action="/payment/delete/<%= payment[i]._id %>?_method=delete" method="post" style="display: inline-block">
+            <a href="/payment/edit/<%= payment[i]._id %>" class="btn btn-warning">
+              <i class="nav-icon fas fa-pencil-alt"></i>
+            </a>
+            <button class="btn btn-danger"><i class="nav-icon fas fa-trash-alt"></i></button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
