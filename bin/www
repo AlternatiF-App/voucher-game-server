@@ -13,7 +13,7 @@ const db = require('../db');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
 
 /**
@@ -34,7 +34,7 @@ db.on("connected", () => {
   server.listen(port);
   server.on('error', onError);
   server.on('listening', onListening);
-  console.log("Connected to mongodb");
+  console.log("Connected to mongodb and Running in", port);
 })
 
 /**

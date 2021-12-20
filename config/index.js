@@ -9,5 +9,6 @@ const path = require('path')
 
 module.exports={
     rootPath : path.resolve(__dirname, '..'),
-    MONGO_URL:"mongodb+srv://fanani:sTJwzCGdiHAdbSNI@cluster0.jgw1f.mongodb.net/test?retryWrites=true&w=majority"
+    MONGO_URL:"mongodb+srv://fanani:sTJwzCGdiHAdbSNI@cluster0.jgw1f.mongodb.net/test?retryWrites=true&w=majority",
+    JWT_KEY:"SECRETKEY"
 }
