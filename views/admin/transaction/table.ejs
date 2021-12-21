@@ -35,11 +35,11 @@
             <%= transaction[i].player?.name ?? '-' %>
           </td>
           <td>
-            <% if(transaction[i].status === 'pending'){ %>
+            <% if(transaction[i].status === 'Pending'){ %>
               <span class="badge badge-warning">
                 <%= transaction[i].status %>
               </span>
-            <% }else if(transaction[i].status === 'success'){ %>
+            <% }else if(transaction[i].status === 'Success'){ %>
               <span class="badge badge-success">
                 <%= transaction[i].status %>
               </span>
@@ -50,11 +50,11 @@
             <% }%>
           </td>
           <td>
-            <% if(transaction[i].status === 'pending'){ %>
-            <form action="/transaction/status/<%= transaction[i]._id %>?status=success&_method=put" method="post" style="display: inline-block">
+            <% if(transaction[i].status === 'Pending'){ %>
+            <form action="/transaction/status/<%= transaction[i]._id %>?status=Success&_method=put" method="post" style="display: inline-block">
               <button class="btn btn-info"><i class="nav-icon fas fa-check"></i></button>
             </form>
-            <form action="/transaction/status/<%= transaction[i]._id %>?status=failed&_method=put" method="post" style="display: inline-block">
+            <form action="/transaction/status/<%= transaction[i]._id %>?status=Failed&_method=put" method="post" style="display: inline-block">
               <button class="btn btn-danger"><i class="nav-icon fas fa-trash-alt"></i></button>
             </form>
             <% } %>

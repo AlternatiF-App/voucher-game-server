@@ -24,10 +24,10 @@ let transactionSchema = mongoose.Schema({
             type: Number
         },
     },
-    historyPaymen : {
+    historyPayment : {
         name: { type: String, require: [true, "Name must be filled"]},
         type: { type: String, require: [true, "Payment Type must be filled"]},
-        bankName: { type: String, require: [true, "Bank Name must be filled"]},
+        nameBank: { type: String, require: [true, "Bank Name must be filled"]},
         accountNumber: { type: String, require: [true, "Account Number must be filled"]}
     },
     name: { 
