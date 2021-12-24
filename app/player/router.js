@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {landingPage, detailPage, category, checkout, history, historyDetail, dashboard, profile, editProfile} = require('./controller')
+const {landingPage, detailPage, category, checkout, history, historyDetail, dashboard, profile, editProfile, payments} = require('./controller')
 const { isLoginPlayer } = require('../middleware/auth')
 const multer = require('multer');
 const os = require('os');
@@ -18,5 +18,6 @@ router.put('/profile',
   multer({ dest: os.tmpdir() }).single('recfile'),
   editProfile
 );
+router.get('/payment', payments)
 
 module.exports = router;

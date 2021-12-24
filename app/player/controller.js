@@ -277,5 +277,15 @@ module.exports = {
                 })
             }
         }
+    },
+    payments: async(req, res) => {
+        try {
+            const payment = await Payment.find()
+                .populate('banks')
+            
+            res.status(200).json({data : payment})
+        } catch (error) {
+            res.status(500).json({ message : error.message || 'Internal Server Error'})
+        }
     }
 }
