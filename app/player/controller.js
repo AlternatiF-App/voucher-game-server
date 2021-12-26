@@ -65,8 +65,8 @@ module.exports = {
             const res_bank = await Bank.findById({_id : bank})
             if(!res_bank) return res.status(404).json({message: 'Bank not found'})
             
-            let tax = (10 / 100) * res_nominal._doc.price;
-            let value = res_nominal._doc.price - tax;
+            let tax = res_nominal._doc.price * (10 / 100);
+            let value = res_nominal._doc.price + tax;
 
             const payload = {
                 historyVoucherTopup : {
